@@ -1,32 +1,24 @@
 /* ─────────────────────────────────────────────────────────────────────
-   PORTFOLIO CONFIG — your personal content.
-   Visual settings (colors, animations, section labels) → design.ts
-
-   Edit these sections:
-       ME               your name, email, GitHub/LinkedIn, resume path
-       HERO             greeting, taglines, bio, photo, CTA buttons
-       EDUCATION        school, degree, courses
-       EXPERIENCE       jobs and internships
-       CONTACT_BLURB    short paragraph above your contact links
-       PROJECTS         things you've built
+   PORTFOLIO CONFIG — Grant Ho
+   Personal content based on résumé.
+   Visual settings → design.ts
    ───────────────────────────────────────────────────────────────────── */
 
 import { SECTIONS, LABELS } from './design';
 
-// ── 1. Your info — fill this in first ────────────────────────────────
-// Every URL, page title, and footer link is built from these values.
+// ── 1. Personal information ────────────────────────────────────────────
 export const ME = {
-  firstName: 'Your',
-  lastName: 'Name',
-  role: 'Software Engineer',  // shown in hero and page title
-  email: 'you@example.com',
-  github: 'yourusername',       // GitHub username only — no URL
-  linkedin: 'yourusername',       // LinkedIn username only — no URL
-  resumePath: '/resume.pdf',        // path under public/ — see README.md
+  firstName: 'Grant',
+  lastName: 'Ho',
+  role: 'CS Student & ML Researcher',
+  email: 'grantho701@gmail.com',
+  github: 'hihitherethere',
+  linkedin: 'grant-ho-85729b278',
+  resumePath: '/resume.pdf',
 };
 
 // ─────────────────────────────────────────────────────────────────────
-// Everything below is derived automatically — no need to edit.
+// Everything below is derived automatically.
 // ─────────────────────────────────────────────────────────────────────
 
 const GITHUB_URL = `https://github.com/${ME.github}`;
@@ -47,36 +39,51 @@ export const PERSON = {
   role: ME.role,
 };
 
-// ── Site metadata ─────────────────────────────────────────────────────
+// ── Site metadata ────────────────────────────────────────────────────
 export const SITE = {
   url: SITE_URL,
   title: `${PERSON.fullName} | ${PERSON.role}`,
   titleSuffix: `| ${PERSON.fullName}`,
-  description: `Personal portfolio of ${PERSON.fullName}, a ${PERSON.role}.`,
+  description:
+    'Grant Ho is a UCLA computer science student interested in ' +
+    'machine learning, algorithms, and mathematical problem-solving.',
 };
 
 // ── Navigation ────────────────────────────────────────────────────────
-// Built automatically from SECTIONS in design.ts — hidden sections
-// are excluded from the nav without any extra edits here.
 export const NAV_LINKS = [
-  SECTIONS.experience && { label: LABELS.experience.nav, href: '#experience' },
-  SECTIONS.projects && { label: LABELS.projects.nav, href: '#projects' },
-  SECTIONS.contact && { label: LABELS.contact.nav, href: '#contact' },
+  SECTIONS.experience && {
+    label: LABELS.experience.nav,
+    href: '#experience',
+  },
+  SECTIONS.projects && {
+    label: LABELS.projects.nav,
+    href: '#projects',
+  },
+  SECTIONS.contact && {
+    label: LABELS.contact.nav,
+    href: '#contact',
+  },
 ].filter(Boolean) as { label: string; href: string }[];
 
 // ── 2. Hero ───────────────────────────────────────────────────────────
 export const HERO = {
   greeting: "Hi, I'm",
-  // Rotate through multiple taglines with a typing effect (configure in design.ts)
+
   taglines: [
-    'Software Engineer',
-    'Student at UCLA',
-    'Builder of Things',
+    'Computer Science Student at UCLA',
+    'Machine Learning Researcher',
+    'USACO Platinum & Codeforces Master',
+    'Interested in Algorithms and Mathematics',
   ] as string[],
-  bio: "I'm a software engineer who builds things for the web, from clean UIs to scalable backends. I care about craft, speed, and shipping work that lasts.",
-  // Set to '/photo.jpg' to show your photo (place file at public/photo.jpg).
-  // undefined shows your initials. To hide the frame entirely, set showPhoto: false in design.ts.
+
+  bio:
+    "I'm a UCLA computer science student interested in machine learning, " +
+    'algorithms, and mathematical problem-solving. From forecasting chaotic ' +
+    'dynamical systems to building full-stack applications, I enjoy turning ' +
+    'abstract ideas into working systems and exploring the mathematics behind them.',
+
   photo: undefined as string | undefined,
+
   ctas: [
     { label: 'View my projects →', href: '#projects', primary: true },
     { label: 'Get in touch', href: '#contact', primary: false },
@@ -84,7 +91,6 @@ export const HERO = {
 };
 
 // ── 3. Education ──────────────────────────────────────────────────────
-// Shown inside the Experience section (order/visibility in design.ts).
 export interface EducationEntry {
   school: string;
   degree: string;
@@ -98,22 +104,16 @@ export const EDUCATION: EducationEntry[] = [
   {
     school: 'University of California, Los Angeles',
     degree: 'B.S. Computer Science',
-    minor: 'Statistics',
-    gpa: '3.82',
-    graduation: 'June 2026',
+    graduation: 'June 2029',
     courses: [
-      'Data Structures and Algorithms',
-      'Operating Systems',
-      'Computer Networks',
-      'Machine Learning',
-      'Probability and Statistics',
-      'Software Engineering',
+      'Linear Algebra',
+      'Multivariable Calculus',
+      'Differential Equations',
     ],
   },
 ];
 
 // ── 4. Experience ─────────────────────────────────────────────────────
-// One entry per job/internship, most recent first.
 export interface ExperienceEntry {
   company: string;
   role: string;
@@ -126,39 +126,54 @@ export interface ExperienceEntry {
 
 export const EXPERIENCE: ExperienceEntry[] = [
   {
-    company: 'Acme Corporation',
-    role: 'Software Engineer Intern',
-    location: 'San Francisco, CA',
+    company: 'Aspiring Scholars Directed Research Program',
+    role: 'Machine Learning Research Intern',
+    location: 'Fremont, CA',
     start: 'Jun 2025',
-    end: 'Aug 2025',
+    end: 'Sep 2025',
     bullets: [
-      'Built a real-time dashboard in React and TypeScript, reducing incident response time by 40%.',
-      'Designed and deployed three REST API endpoints serving 50k requests per day.',
-      'Collaborated with the design team to ship a redesigned onboarding flow that improved conversion by 18%.',
+      'Predicted chaotic dynamical systems over long time horizons with less than 5% error using neural networks.',
+      'Developed and evaluated 5+ neural architectures, including LSTM, GRU, and Reservoir Computing.',
+      'Evaluated models using divergence time, F-statistics, R², and other statistical measures.',
+      'Applied neural forecasting methods to chaotic blood-dynamics models and drafted a research paper presenting the findings.',
     ],
-    tech: ['React', 'TypeScript', 'Python', 'PostgreSQL', 'AWS'],
+    tech: [
+      'Python',
+      'PyTorch',
+      'TensorFlow',
+      'NumPy',
+    ],
   },
   {
-    company: 'UCLA Engineering',
-    role: 'Teaching Assistant, CS 33',
-    location: 'Los Angeles, CA',
-    start: 'Sep 2024',
-    end: 'Dec 2024',
+    company: 'Aspiring Scholars Directed Research Program',
+    role: 'Machine Learning Research Intern',
+    location: 'Fremont, CA',
+    start: 'Jun 2024',
+    end: 'Sep 2024',
     bullets: [
-      'Led weekly discussion sections for 40 students covering systems programming in C.',
-      'Held office hours to assist students with debugging and conceptual questions.',
-      'Wrote and graded three programming assignments and two midterms.',
+      'Developed a custom self-organizing map (SOM) to project high-dimensional data into a two-dimensional topological representation.',
+      'Evaluated SOM performance using high-dimensional topological structures generated with parametric equations.',
+      'Built the model in Google Colab using scikit-learn, SciPy, and NumPy.',
+      'Created visualizations of data and experimental results using Matplotlib.',
     ],
-    tech: ['C', 'x86 Assembly', 'Linux'],
+    tech: [
+      'Python',
+      'scikit-learn',
+      'NumPy',
+      'SciPy',
+      'Matplotlib',
+      'Google Colab',
+    ],
   },
 ];
 
 // ── 5. Contact blurb ──────────────────────────────────────────────────
-// Short paragraph shown above your contact links.
-export const CONTACT_BLURB = "I'm actively looking for internships and new grad roles. If you're working on something interesting or just want to chat, my inbox is always open.";
+export const CONTACT_BLURB =
+  "I'm interested in machine learning, theoretical computer science, " +
+  'algorithms, and mathematics. If you are working on an interesting ' +
+  'research problem or building something exciting, feel free to reach out.';
 
 // ── 6. Projects ───────────────────────────────────────────────────────
-// `featured: true` highlights the card with an accent-colored border.
 export interface ProjectEntry {
   name: string;
   description: string;
@@ -170,66 +185,111 @@ export interface ProjectEntry {
 
 export const PROJECTS: ProjectEntry[] = [
   {
-    name: 'StudySync',
-    description: 'A collaborative study-planning app that lets students share notes, schedule group sessions, and track progress in real time.',
-    tech: ['Next.js', 'TypeScript', 'Supabase', 'Tailwind CSS'],
-    github: `${GITHUB_URL}/studysync`,
-    live: 'https://studysync.app',
+    name: 'Codeforces Difficulty Prediction Model',
+    description:
+      'Built a full-stack web application that predicts Codeforces problem ' +
+      'difficulty with less than 10% error compared with actual ratings. ' +
+      'Applied statistical regression to historical contest data, developed ' +
+      'a Flask backend with a Supabase SQL database, and automated data ' +
+      'collection through the Codeforces API. The application attracted ' +
+      'approximately 100 unique users.',
+    tech: [
+      'Python',
+      'Flask',
+      'SQL',
+      'Supabase',
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'REST APIs',
+    ],
     featured: true,
   },
   {
-    name: 'BruinBot',
-    description: 'A Discord bot surfacing real-time UCLA dining menus, library room availability, and bus schedules for 2,000+ active users.',
-    tech: ['Node.js', 'Discord.js', 'REST APIs', 'Cron'],
-    github: `${GITHUB_URL}/bruinbot`,
+    name: 'Logicdle',
+    description:
+      'Built, tested, and deployed a full-stack application in under 40 hours ' +
+      'using Claude Code. Implemented a user submission pipeline, image storage ' +
+      'and retrieval, and leaderboard functionality. Reviewed the code to ' +
+      'ensure sensitive information, including passwords and database keys, ' +
+      'was handled securely.',
+    tech: [
+      'Python',
+      'Claude Code',
+      'Full-Stack Development',
+      'Database Systems',
+      'Web Security',
+    ],
     featured: true,
   },
   {
-    name: 'PocketPortfolio',
-    description: 'A mobile-first stock portfolio tracker with custom alerts and a clean chart-based UI, built during a 24-hour hackathon.',
-    tech: ['React Native', 'Expo', 'Recharts', 'Firebase'],
-    github: `${GITHUB_URL}/pocketportfolio`,
-    live: 'https://pocketportfolio.dev',
-    featured: false,
-  },
-  {
-    name: 'AutoGrade',
-    description: 'A CLI grading tool that runs student Python submissions against test suites in isolated Docker containers and produces structured reports.',
-    tech: ['Python', 'Docker', 'Bash', 'SQLite'],
-    github: `${GITHUB_URL}/autograde`,
-    featured: false,
+    name: 'AI Coliseum — 5th Place',
+    description:
+      'Developed an autonomous game-playing agent for the AI Coliseum 2024 ' +
+      'competition. Designed a symmetry-based exploration strategy that used ' +
+      'bot dispersion to map unknown environments efficiently, implemented ' +
+      'inter-agent communication to share discovered regions, and developed ' +
+      'a navigation algorithm to avoid walls and environmental hazards.',
+    tech: [
+      'Java',
+      'Artificial Intelligence',
+      'Search Algorithms',
+      'Multi-Agent Systems',
+    ],
+    featured: true,
   },
 ];
 
-// ── Social links ──────────────────────────────────────────────────────
+// ── 7. Social links ───────────────────────────────────────────────────
 export const SOCIAL_LINKS = [
   { label: 'GitHub', href: GITHUB_URL },
   { label: 'LinkedIn', href: LINKEDIN_URL },
   { label: 'Email', href: EMAIL_HREF },
 ];
 
-// ── Contact ───────────────────────────────────────────────────────────
+// ── 8. Contact ────────────────────────────────────────────────────────
 export const CONTACT = {
   email: ME.email,
   blurb: CONTACT_BLURB,
   links: [
     { label: 'Email', href: EMAIL_HREF, display: ME.email },
-    { label: 'GitHub', href: GITHUB_URL, display: `github.com/${ME.github}` },
-    { label: 'LinkedIn', href: LINKEDIN_URL, display: `linkedin.com/in/${ME.linkedin}` },
-    { label: 'Resume', href: ME.resumePath, display: 'Download PDF' },
+    {
+      label: 'GitHub',
+      href: GITHUB_URL,
+      display: `github.com/${ME.github}`,
+    },
+    {
+      label: 'LinkedIn',
+      href: LINKEDIN_URL,
+      display: `linkedin.com/in/${ME.linkedin}`,
+    },
+    {
+      label: 'Resume',
+      href: ME.resumePath,
+      display: 'Download PDF',
+    },
   ],
 };
 
-// ── Footer ────────────────────────────────────────────────────────────
+// ── 9. Footer ─────────────────────────────────────────────────────────
 export const FOOTER = {
-  tagline: `${PERSON.role} building things for the web.`,
+  tagline: 'Exploring algorithms, mathematics, and machine learning.',
   columns: [
     {
       heading: 'Portfolio',
       links: [
-        SECTIONS.experience && { label: LABELS.experience.nav, href: '#experience' },
-        SECTIONS.projects && { label: LABELS.projects.nav, href: '#projects' },
-        SECTIONS.contact && { label: LABELS.contact.nav, href: '#contact' },
+        SECTIONS.experience && {
+          label: LABELS.experience.nav,
+          href: '#experience',
+        },
+        SECTIONS.projects && {
+          label: LABELS.projects.nav,
+          href: '#projects',
+        },
+        SECTIONS.contact && {
+          label: LABELS.contact.nav,
+          href: '#contact',
+        },
       ].filter(Boolean) as { label: string; href: string }[],
     },
     {
