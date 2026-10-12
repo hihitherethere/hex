@@ -50,12 +50,12 @@ Everything is in [`config/portfolio.ts`](config/portfolio.ts). You never need to
 
 ```ts
 export const ME = {
-  firstName:  'Your',
-  lastName:   'Name',
+  firstName:  'Grant',
+  lastName:   'Ho',
   role:       'Software Engineer',
-  email:      'you@example.com',
-  github:     'yourusername',   // username only
-  linkedin:   'yourusername',   // username only
+  email:      'grantho701@ucla.edu',
+  github:     'hihitherethere',   // username only
+  linkedin:   'grant-ho-85729b278',   // username only
   resumePath: '/resume.pdf',
 };
 ```

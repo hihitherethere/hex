@@ -10,7 +10,7 @@ import { SECTIONS, LABELS } from './design';
 export const ME = {
   firstName: 'Grant',
   lastName: 'Ho',
-  role: 'CS Student & ML Researcher',
+  role: 'CS Student',
   email: 'grantho701@gmail.com',
   github: 'hihitherethere',
   linkedin: 'grant-ho-85729b278',
